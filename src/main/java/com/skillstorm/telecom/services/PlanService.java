@@ -31,8 +31,8 @@ public class PlanService {
 		 repo.delete(id);
 	}
 	
-	public List<Plan> findTotal(int deviceId, int planId) {
-		return repo.findTotal(deviceId,planId);
-	}
+//	public List<Plan> findTotal(int deviceId, int planId) {
+//		return repo.findTotal(deviceId,planId);
+//	}
 
 }

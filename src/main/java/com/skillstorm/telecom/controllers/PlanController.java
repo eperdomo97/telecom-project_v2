@@ -42,12 +42,12 @@ public class PlanController {
 		return new ResponseEntity<>(newPlan, HttpStatus.CREATED); 		
 	}
 	
-	@GetMapping("{id1}/{id2}")
-	public ResponseEntity<List<Plan>> findTotal(@PathVariable int id1, @PathVariable int id2) {
-		System.out.println("total() " + id1 + " -- " + id2);
-
-		return new ResponseEntity<List<Plan>>(service.findTotal(id1,id2), HttpStatus.OK);
-	}
+//	@GetMapping("{id1}/{id2}")
+//	public ResponseEntity<List<Plan>> findTotal(@PathVariable int id1, @PathVariable int id2) {
+//		System.out.println("total() " + id1 + " -- " + id2);
+//
+//		return new ResponseEntity<List<Plan>>(service.findTotal(id1,id2), HttpStatus.OK);
+//	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") int id) {

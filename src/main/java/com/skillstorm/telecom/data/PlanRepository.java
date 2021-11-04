@@ -15,8 +15,8 @@ import com.skillstorm.telecom.beans.Plan;
 @Repository
 public interface PlanRepository extends JpaRepository<Plan, Integer>{
 
-	@Query(value = "select * from plans, devices where devices.plan_id = ? and plans.plan_id = ?", nativeQuery = true)
-	public List<Plan> findTotal(int deviceId, int planId);
+//	@Query(value = "select * from plans, devices where devices.plan_id = ? and plans.plan_id = ?", nativeQuery = true)
+//	public List<Plan> findTotal(int deviceId, int planId);
 	
 	@Modifying
     @Transactional
