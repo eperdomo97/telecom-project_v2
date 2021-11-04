@@ -26,12 +26,12 @@ public class DeviceController {
 	@Autowired
 	DeviceService service;
 	
-	@GetMapping
-	public ResponseEntity<List<Device>> findAll() {
-		List<Device> allDevices = service.findAll();
-		
-		return new ResponseEntity<>(allDevices, HttpStatus.OK);
-	}
+//	@GetMapping
+//	public ResponseEntity<List<Device>> findAll() {
+//		List<Device> allDevices = service.findAll();
+//		
+//		return new ResponseEntity<>(allDevices, HttpStatus.OK);
+//	}
 	
 	@PostMapping("add")
 	public ResponseEntity<Device> save(@RequestBody Device device) {
@@ -46,12 +46,11 @@ public class DeviceController {
 		 service.delete(name);
 	}
 	
-//	@GetMapping("{id}")
-//	public ResponseEntity<List<Device>> findByPlan(@PathVariable int id) {
-//		System.out.println("findByPlan() " + id);
-//
-//		return new ResponseEntity<List<Device>>(service.findByPlan(id), HttpStatus.OK);
-//	}
+	@GetMapping("/{id}")
+	public ResponseEntity<List<Device>> findByPlan(@PathVariable("id") int id) {
+		System.out.println("findByPlan() " + id);
+		return new ResponseEntity<List<Device>>(service.findByPlan(id), HttpStatus.OK);
+	}
 	
 	
 }
