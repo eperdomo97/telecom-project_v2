@@ -12,12 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.skillstorm.telecom.beans.Device;
 import com.skillstorm.telecom.beans.Plan;
 
+/**
+ * Plan Repo
+ * @author Matthew, Edrick, Hieu
+ *
+ */
 @Repository
 public interface PlanRepository extends JpaRepository<Plan, Integer>{
-
-//	@Query(value = "select * from plans, devices where devices.plan_id = ? and plans.plan_id = ?", nativeQuery = true)
-//	public List<Plan> findTotal(int deviceId, int planId);
 	
+	/**
+	 * DELETE by plan id
+	 * @param id
+	 */
 	@Modifying
     @Transactional
 	@Query(value = "delete from plans where plans.plan_id = ?", nativeQuery = true)	

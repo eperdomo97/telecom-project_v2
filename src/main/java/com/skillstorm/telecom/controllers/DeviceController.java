@@ -18,21 +18,35 @@ import com.skillstorm.telecom.beans.Device;
 import com.skillstorm.telecom.beans.Plan;
 import com.skillstorm.telecom.services.DeviceService;
 
+/**
+ * Device Controller 
+ * @author Matthew, Edrick, Hieu
+ *
+ */
 @RestController
 @RequestMapping("devices")
 @CrossOrigin("https://telecom-angular-eap.azurewebsites.net/")
 public class DeviceController {
 
+	//Device service
 	@Autowired
 	DeviceService service;
 	
-//	@GetMapping
-//	public ResponseEntity<List<Device>> findAll() {
-//		List<Device> allDevices = service.findAll();
-//		
-//		return new ResponseEntity<>(allDevices, HttpStatus.OK);
-//	}
+	/**
+	 * GET all devices
+	 * @return
+	 */
+	@GetMapping
+	public ResponseEntity<List<Device>> findAll() {
+		List<Device> allDevices = service.findAll();
+		return new ResponseEntity<>(allDevices, HttpStatus.OK);
+	}
 	
+	/**
+	 * POST a device
+	 * @param device
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResponseEntity<Device> save(@RequestBody Device device) {
 		System.out.println("save() " + device);
@@ -40,17 +54,25 @@ public class DeviceController {
 		return new ResponseEntity<>(newDevice, HttpStatus.CREATED); 		
 	}
 	
+	/**
+	 * DELETE a device by name
+	 * @param name
+	 */
 	@DeleteMapping("/{name}")
 	public void delete(@PathVariable("name") String name) {
 		System.out.println("delete() " + name);
 		 service.delete(name);
 	}
 	
+	/**
+	 * GET all by plan id
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<List<Device>> findByPlan(@PathVariable("id") int id) {
 		System.out.println("findByPlan() " + id);
 		return new ResponseEntity<List<Device>>(service.findByPlan(id), HttpStatus.OK);
 	}
-	
 	
 }

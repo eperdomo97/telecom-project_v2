@@ -15,28 +15,38 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skillstorm.telecom.services.CustomerService;
 import com.skillstorm.telecom.beans.Customer;
 
+/**
+ * Customer Controller 
+ * @author Matthew, Edrick, Hieu
+ *
+ */
 @RestController
 @RequestMapping("customers")
 @CrossOrigin("https://telecom-angular-eap.azurewebsites.net/")
 public class CustomerController {
 
+	//Customer service
 	@Autowired
 	CustomerService service;
 	
+	/**
+	 * GET all users
+	 * @return
+	 */
 	@GetMapping
 	public ResponseEntity<List<Customer>> findAll() {
-		
 		List<Customer> allCustomers = service.findAll();
-		
 		return new ResponseEntity<>(allCustomers, HttpStatus.OK);
 	}
 	
+	/**
+	 * POST a user
+	 * @param customer
+	 * @return
+	 */
 	@PostMapping("user")	
 	public ResponseEntity<Customer> save(@RequestBody Customer customer) {
-		System.out.println("save() " + customer);
-		
 		Customer newUser = service.save(customer);
-		
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED); 
 	}
 	

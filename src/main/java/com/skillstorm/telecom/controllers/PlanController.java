@@ -18,14 +18,24 @@ import com.skillstorm.telecom.beans.Device;
 import com.skillstorm.telecom.beans.Plan;
 import com.skillstorm.telecom.services.PlanService;
 
+/**
+ * Plan Controller 
+ * @author Matthew, Edrick, Hieu
+ *
+ */
 @RestController
 @RequestMapping("plans")
 @CrossOrigin("https://telecom-angular-eap.azurewebsites.net/")
 public class PlanController {
 
+	//Plan service
 	@Autowired
 	PlanService service;
 	
+	/**
+	 * GET all plans
+	 * @return
+	 */
 	@GetMapping
 	public ResponseEntity<List<Plan>> findAll() {
 		List<Plan> allPlans = service.findAll();
@@ -33,6 +43,11 @@ public class PlanController {
 		return new ResponseEntity<>(allPlans, HttpStatus.OK);
 	}
 	
+	/**
+	 * POST a plan
+	 * @param plan
+	 * @return
+	 */
 	@PostMapping("/cart")
 	public ResponseEntity<Plan> save(@RequestBody Plan plan) {
 		System.out.println("save() " + plan);
@@ -42,13 +57,10 @@ public class PlanController {
 		return new ResponseEntity<>(newPlan, HttpStatus.CREATED); 		
 	}
 	
-//	@GetMapping("{id1}/{id2}")
-//	public ResponseEntity<List<Plan>> findTotal(@PathVariable int id1, @PathVariable int id2) {
-//		System.out.println("total() " + id1 + " -- " + id2);
-//
-//		return new ResponseEntity<List<Plan>>(service.findTotal(id1,id2), HttpStatus.OK);
-//	}
-	
+	/**
+	 * DELETE a plan by id
+	 * @param id
+	 */
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") int id) {
 		System.out.println("delete() " + id);
