@@ -17,7 +17,7 @@ import com.skillstorm.telecom.beans.Customer;
 
 @RestController
 @RequestMapping("customers")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://telecom-angular-eap.azurewebsites.net/")
 public class CustomerController {
 
 	@Autowired

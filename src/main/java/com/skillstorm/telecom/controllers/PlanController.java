@@ -20,7 +20,7 @@ import com.skillstorm.telecom.services.PlanService;
 
 @RestController
 @RequestMapping("plans")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://telecom-angular-eap.azurewebsites.net/")
 public class PlanController {
 
 	@Autowired
