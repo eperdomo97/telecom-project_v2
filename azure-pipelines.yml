@@ -9,7 +9,7 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '7da1a74f-d5a4-41c1-ac66-4237bcde9efb'
+  azureSubscription: '552f4f6b-f49e-4da2-bf76-439689f6df60'
 
   # Web app name
   webAppName: 'telecom-application-eap'
