@@ -32,7 +32,6 @@ stages:
     steps:
 	- checkout: self
 		persistCredentials: true
-	
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
