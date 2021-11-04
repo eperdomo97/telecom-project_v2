@@ -3,6 +3,7 @@ package com.skillstorm.telecom.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.telecom.data.PlanRepository;
@@ -24,6 +25,10 @@ public class PlanService {
 	public Plan save(Plan plan) {
 		Plan newPlan = repo.save(plan);
 		return newPlan;
+	}
+	
+	public void delete(@Param("id") int id) {
+		 repo.delete(id);
 	}
 	
 	public List<Plan> findTotal(int deviceId, int planId) {
